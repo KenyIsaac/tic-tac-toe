@@ -60,12 +60,12 @@ const PlayerDisplay: FC<IProps> = ({ player }) => {
     return null
   }, [currentUser, isLeaving, leaveRoom, player, playerId, room])
 
-  if (isFetching) return <H1>Loading Room...</H1>
-  if (!room) return <H1>Room Not Found</H1>
+  if (isFetching) return <H1>Esperando sala...</H1>
+  if (!room) return <H1>Sala no encontrada</H1>
 
   return (
     <P>
-      <strong>Player {player}:</strong>&nbsp;
+      <strong>Jugador {player}:</strong>&nbsp;
       {user ? (
         <span onClick={() => history.push(`/u/${playerId}`)}>
           {user.displayName}
@@ -73,7 +73,7 @@ const PlayerDisplay: FC<IProps> = ({ player }) => {
         </span>
       ) : currentUser ? (
         <span onClick={() => joinRoom(player, currentUser.id)}>
-          Join{isJoining ? 'ing' : ''}
+          Ingresar{isJoining ? 'ing' : ''}
         </span>
       ) : (
         <span
@@ -81,7 +81,7 @@ const PlayerDisplay: FC<IProps> = ({ player }) => {
             history.push(`/login?redirect=r_${room.id}&player=${player}`)
           }
         >
-          Login to Join
+          Inicia para ingresar
         </span>
       )}
     </P>

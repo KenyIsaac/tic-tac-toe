@@ -10,8 +10,8 @@ const Board: FC = () => {
   const { isFetching, room } = useRoom()
   const currentUser = useCurrentUser()
 
-  if (isFetching) return <H1>Loading Room...</H1>
-  if (!room) return <H1>Room Not Found</H1>
+  if (isFetching) return <H1>Esperando sala...</H1>
+  if (!room) return <H1>Sala no encontrada</H1>
 
   const { board, isGameDone, playerOId, playerTurn, playerXId } = room
 

@@ -22,7 +22,7 @@ const Logout: FC = () => {
   return (
     <>
       <Button disabled={isLoggingOut} onClick={handleClick}>
-        Log{isLoggingOut ? 'ging' : ''} Out
+        Cerrar{isLoggingOut ? 'ging' : ''} Sesión
       </Button>
       {firebaseErr && <Error>{firebaseErr}</Error>}
     </>

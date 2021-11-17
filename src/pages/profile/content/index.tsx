@@ -29,9 +29,9 @@ const Content: FC<{ user: User }> = ({ user }) => {
       <Field
         disabled={!isCurrentUser}
         id="display-name"
-        label="Display Name"
+        label="Nombre del jugador"
         onChange={setDisplayName}
-        placeholder="Enter Display Name"
+        placeholder="Ingrese nombre de jugador"
         value={displayName}
       />
       {isCurrentUser && (

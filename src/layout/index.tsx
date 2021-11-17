@@ -12,7 +12,7 @@ const Layout: FC = ({ children }) => {
     <Content>
       <Title>Tic Tac Toe</Title>
       <Card>
-        {currentUser && <P>Logged in as {currentUser.displayName}</P>}
+        {currentUser && <P>Conectarse a {currentUser.displayName}</P>}
         {children}
       </Card>
     </Content>

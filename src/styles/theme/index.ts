@@ -7,5 +7,5 @@ export default {
     lightGray: 'lightgray',
     white: 'white',
   },
-  transition: '0.3s',
+  transition: '0.5s',
 }

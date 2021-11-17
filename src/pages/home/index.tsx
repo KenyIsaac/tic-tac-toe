@@ -32,20 +32,20 @@ const Home: FC = () => {
 
   return (
     <>
-      <H1>Home Page</H1>
-      <Button onClick={goToJoinRoom}>Join Room</Button>
+      <H1>Página de inicio</H1>
+      <Button onClick={goToJoinRoom}>Salas de juego</Button>
       {user ? (
         <>
           <Button disabled={isCreatingRoom} onClick={handleCreateRoom}>
-            Creat{isCreatingRoom ? 'ing' : 'e'} Room
+            Crear{isCreatingRoom ? 'ing' : 'e'} Nueva sala
           </Button>
-          <Button onClick={goToProfile}>Profile</Button>
+          <Button onClick={goToProfile}>Perfil</Button>
           <Logout />
         </>
       ) : (
         <>
-          <Button onClick={goToLogin}>Login</Button>
-          <Button onClick={goToSignup}>Signup</Button>
+          <Button onClick={goToLogin}>Registrarse</Button>
+          <Button onClick={goToSignup}>Iniciar Sesión</Button>
         </>
       )}
     </>

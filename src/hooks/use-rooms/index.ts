@@ -8,8 +8,8 @@ interface Output {
   rooms: RoomItem[]
 }
 
-// TODO: add filter
-const useRooms = (/* filter */): Output => {
+
+const useRooms = (): Output => {
   const [isFetching, setIsFetching] = useState(true)
   const [rooms, setRooms] = useState<RoomItem[]>([])
 
@@ -35,7 +35,7 @@ const useRooms = (/* filter */): Output => {
   useEffect(() => {
     const unsubscribe = db.collection('rooms').onSnapshot((snapshot) => {
       getRooms(snapshot).then((formattedRooms) => {
-        setRooms(formattedRooms) // implement Filter here
+        setRooms(formattedRooms) 
         if (isFetching) setIsFetching(false)
       })
     })

@@ -11,7 +11,7 @@ const ProfilePage: FC = () => {
   const { userId } = useParams()
   const { isFetching, user } = useUser(userId)
 
-  if (isFetching) return <H1>Fetching User Profile...</H1>
+  if (isFetching) return <H1>Obteniendo otros perfiles</H1>
 
   function goBack() {
     history.push('/')
@@ -19,13 +19,13 @@ const ProfilePage: FC = () => {
 
   return (
     <>
-      <H1>Profile</H1>
+      <H1>Perfil de usuario</H1>
       {user ? (
         <Content user={user} />
       ) : (
-        <P>Could not find user with ID: {userId}</P>
+        <P>No se pudo conseguir el usuario: {userId}</P>
       )}
-      <Button onClick={goBack}>Back</Button>
+      <Button onClick={goBack}>Regresar</Button>
     </>
   )
 }

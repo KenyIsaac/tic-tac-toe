@@ -32,16 +32,16 @@ const SignupPage: FC = () => {
   }, [email, password, confirmPassword])
 
   async function handleSignup() {
-    if (email.length === 0) return setEmailErr('Email is required!')
-    if (!validateEmail(email)) return setEmailErr('Email must be valid!')
-    if (password.length === 0) return setPasswordErr('Password is required!')
+    if (email.length === 0) return setEmailErr('Correo es requerido')
+    if (!validateEmail(email)) return setEmailErr('Correo inválido')
+    if (password.length === 0) return setPasswordErr('Contraseña requerida')
     if (password.length < 6)
-      return setPasswordErr('Password must be at least 6 characters long!')
+      return setPasswordErr('La contraseña debe tener al menos 6 carateres')
     if (confirmPassword.length === 0)
-      return setConfirmPasswordErr('Confirm Password is required!')
+      return setConfirmPasswordErr('Debes confirmar la contraseña')
     if (password !== confirmPassword) {
-      setPasswordErr('Passwords must match!')
-      return setConfirmPasswordErr('Passwords must match!')
+      setPasswordErr('Las contraseñas deben coincidir')
+      return setConfirmPasswordErr('Las contraseñas deben coincidir')
     }
 
     setIsSigningUp(true)
@@ -52,13 +52,13 @@ const SignupPage: FC = () => {
         password
       )
 
-      if (!response.user) throw new Error('Something went wrong!')
+      if (!response.user) throw new Error('Algo no va bien :(')
 
       await db
-        .collection('users')
+        .collection('Usuario')
         .doc(response.user.uid)
         .set({
-          displayName: response.user.email?.split('@')[0] ?? '<UNKNOWN>',
+          displayName: response.user.email?.split('@')[0] ?? '<Indefinido>',
         })
       history.push('/')
     } catch (ex) {
@@ -77,40 +77,40 @@ const SignupPage: FC = () => {
 
   return (
     <>
-      <H1>Signup</H1>
+      <H1>Inicia Sesión</H1>
       <Field
         errMessage={emailErr}
         id="email"
-        label="* Email"
+        label="Correo"
         onChange={setEmail}
-        placeholder="Enter Email Here"
+        placeholder="Ingresa tu correo"
         type="email"
         value={email}
       />
       <Field
         errMessage={passwordErr}
         id="password"
-        label="* Password"
+        label="Contraseña"
         onChange={setPassword}
-        placeholder="Enter Password Here"
+        placeholder="Ingresa tu contraseña"
         type="password"
         value={password}
       />
       <Field
         errMessage={confirmPasswordErr}
         id="confirm-password"
-        label="* Confirm Password"
+        label="Confirma tu contraseña"
         onChange={setConfirmPassword}
-        placeholder="Enter Password Again Here"
+        placeholder="Ingresa nuevamente tu contraseña"
         type="password"
         value={confirmPassword}
       />
       {firebaseErr && <ErrComponent>{firebaseErr}</ErrComponent>}
       <Button disabled={isSigningUp} onClick={handleSignup}>
-        Sign{isSigningUp ? 'ing' : ''} Up
+        Regístarte{isSigningUp ? 'ing' : ''} aquí
       </Button>
-      <Button onClick={goToLogin}>Login Instead</Button>
-      <Button onClick={goBack}>Back To Home</Button>
+      <Button onClick={goToLogin}>Inicia sesión</Button>
+      <Button onClick={goBack}>Regresar al inicio</Button>
     </>
   )
 }

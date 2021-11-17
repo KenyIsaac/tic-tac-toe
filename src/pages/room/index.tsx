@@ -13,8 +13,8 @@ const Room = () => {
   const history = useHistory()
   const { isFetching, room } = useRoom()
 
-  if (isFetching) return <H1>Loading Room...</H1>
-  if (!room) return <H1>Room Not Found</H1>
+  if (isFetching) return <H1>Esperando sala...</H1>
+  if (!room) return <H1>Sala no encontrada</H1>
 
   const { message, startingTurn } = room
 
@@ -33,9 +33,9 @@ const Room = () => {
       <PlayerDisplay player="X" />
       <PlayerDisplay player="O" />
       <Button disabled={isClearing} onClick={handleClear}>
-        Clear{isClearing ? 'ing' : ''} Board
+        Borrar{isClearing ? 'ing' : ''} tablero
       </Button>
-      <Button onClick={goBack}>Back To Home</Button>
+      <Button onClick={goBack}>Regresar al inicio</Button>
     </Container>
   )
 }

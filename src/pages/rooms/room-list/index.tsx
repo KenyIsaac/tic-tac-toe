@@ -7,8 +7,8 @@ import { useRooms } from 'hooks'
 const RoomList: FC = () => {
   const { isFetching, rooms } = useRooms()
 
-  if (isFetching) return <H1>Fetching Rooms...</H1>
-  if (rooms.length === 0) return <H1>No Rooms Found</H1>
+  if (isFetching) return <H1>Esperando salas...</H1>
+  if (rooms.length === 0) return <H1>Sala no encontrada</H1>
 
   return (
     <>

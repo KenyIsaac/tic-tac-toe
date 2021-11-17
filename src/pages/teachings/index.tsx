@@ -22,7 +22,7 @@ const Teachings: FC = () => {
     }
   }, [])
 
-  if (isFetching) return <H1>Fetching Users...</H1>
+  if (isFetching) return <H1>Obteniendo otros usuarios...</H1>
 
   return (
     <>

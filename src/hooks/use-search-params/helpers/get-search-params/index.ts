@@ -1,6 +1,6 @@
 export default function getSearchParams(search: string) {
-  const searchParams = search.substr(1) // redirect=u_AAAA&player=X
-  const paramsArr = searchParams.split('&') // [redirect=u_AAAA, player=X]
+  const searchParams = search.substr(1) 
+  const paramsArr = searchParams.split('&') 
   const params: any = {}
   paramsArr.forEach((pair) => {
     const [key, value] = pair.split('=')

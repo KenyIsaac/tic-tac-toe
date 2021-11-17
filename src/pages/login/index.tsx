@@ -34,9 +34,9 @@ const LoginPage: FC = () => {
   }, [email, password])
 
   async function handleLogin() {
-    if (email.length === 0) return setEmailErr('Email is required!')
-    if (!validateEmail(email)) return setEmailErr('Email must be valid!')
-    if (password.length === 0) return setPasswordErr('Password is required!')
+    if (email.length === 0) return setEmailErr('Correo requerido')
+    if (!validateEmail(email)) return setEmailErr('El correo no es válido')
+    if (password.length === 0) return setPasswordErr('Contraseña obligatoria')
 
     setIsLoggingIn(true)
 
@@ -59,31 +59,31 @@ const LoginPage: FC = () => {
 
   return (
     <>
-      <H1>Login</H1>
+      <H1>Registro</H1>
       <Field
         errMessage={emailErr}
         id="email"
-        label="* Email"
+        label="Correo electrónico"
         onChange={setEmail}
-        placeholder="Enter Email Here"
+        placeholder="Inserte su dirección de correo"
         type="email"
         value={email}
       />
       <Field
         errMessage={passwordErr}
         id="password"
-        label="* Password"
+        label="Contraseña"
         onChange={setPassword}
-        placeholder="Enter Password Here"
+        placeholder="Ingrese su contraseña"
         type="password"
         value={password}
       />
       {firebaseErr && <Error>{firebaseErr}</Error>}
       <Button disabled={isLoggingIn} onClick={handleLogin}>
-        Log{isLoggingIn ? 'ging' : ''} In
+        Iniciar{isLoggingIn ? 'ging' : ''} Sesión
       </Button>
-      <Button onClick={goToSignup}>Signup Instead</Button>
-      <Button onClick={goBack}>Back To Home</Button>
+      <Button onClick={goToSignup}>Iniciar automático</Button>
+      <Button onClick={goBack}>Regresar a inicio</Button>
     </>
   )
 }
